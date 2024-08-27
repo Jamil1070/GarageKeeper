@@ -1,0 +1,79 @@
+﻿@* @using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+ *@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4">@Localizer["Welcome to GarageKeeper"]</h1>
+        <p class="lead">
+            @Localizer["Your one-stop solution for managing all your garage operations, including vehicle management, customer appointments, order processing, invoicing, and expense tracking."]
+        </p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Cars"]</h5>
+                    <p class="card-text">@Localizer["Manage your vehicle inventory, add new cars, and search for existing vehicles."]</p>
+                    <a href="@Url.Action("Index", "Cars")" class="btn btn-primary">@Localizer["Go to Cars"]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Customers"]</h5>
+                    <p class="card-text">@Localizer["Keep track of your customers, their appointments, and contact details."]</p>
+                    <a href="@Url.Action("Index", "Customers")" class="btn btn-primary">@Localizer["Go to Customers"]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Appointments"]</h5>
+                    <p class="card-text">@Localizer["View and schedule appointments for vehicle services and repairs."]</p>
+                    <a href="@Url.Action("Index", "Appointments")" class="btn btn-primary">@Localizer["Go to Appointments"]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Orders"]</h5>
+                    <p class="card-text">@Localizer["Manage parts orders and track order fulfillment for customer services."]</p>
+                    <a href="@Url.Action("Index", "Orders")" class="btn btn-primary">@Localizer["Go to Orders"]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Invoices"]</h5>
+                    <p class="card-text">@Localizer["Generate and manage invoices for completed services."]</p>
+                    <a href="@Url.Action("Index", "Invoices")" class="btn btn-primary">@Localizer["Go to Invoices"]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Expenses"]</h5>
+                    <p class="card-text">@Localizer["Track and manage business expenses to maintain financial health."]</p>
+                    <a href="@Url.Action("Index", "Expenses")" class="btn btn-primary">@Localizer["Go to Expenses"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model NET_FRAMEWORKS_EXAMEN_OPDRACHT.Models.Invoice
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Invoice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="CarID" class="control-label">Car</label>
+                <select asp-for="CarID" class="form-control" asp-items="@(ViewData["Cars"] as SelectList)">
+                    <option value="">--Select car--</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="IssueDate" class="control-label"></label>
+                <input asp-for="IssueDate" class="form-control" />
+                <span asp-validation-for="IssueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmount" class="control-label"></label>
+                <input asp-for="TotalAmount" class="form-control" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Details" class="control-label"></label>
+                <input asp-for="Details" class="form-control" />
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br/>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    <br />
+    <a asp-action="Index" class="btn btn-custom">Back to List</a>
+</div>
+
+<style>
+    .btn-custom {
+        background-color: green;
+        color: #fff;
+        border-color: darkgreen;
+    }
+
+        .btn-custom:hover {
+            background-color: darkgreen;
+            color: #fff;
+        }
+</style>
+
+

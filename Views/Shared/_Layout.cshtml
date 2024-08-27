@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NET_FRAMEWORKS_EXAMEN_OPDRACHT</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NET_FRAMEWORKS_EXAMEN_OPDRACHT.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-7PwL6z5SKw2olxWjtYjruZvL8qaY/7XMJ73UOO0Xm5s5kjs5A6qPnhI4usCjnRZh9+vtv7Z4CvlE/ThCuD2nNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha512-u7lfXB6P64P0c5Bq3tjn0snV3/J6UZ1+U2+ll6CvchN10d7/UgrM+zH4n3DIP6bVx59s0qU5Q7hVrcNivBk5KQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-3/PWPKHyZeUpShHAIVF5C3BwMBuBNGv91nL/F8N5wBX4uZGHqH5unpGkNXYtaZCzpwwE2qQVgDl35p2DM9mU4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+            .navbar .navbar-brand {
+                color: #ff7f50 !important;
+            }
+
+            .navbar .nav-link {
+                color: #ffffff !important;
+            }
+
+                .navbar .nav-link:hover {
+                    color: #ff7f50 !important;
+                }
+
+        .dropdown-menu {
+            background-color: #343a40;
+        }
+
+            .dropdown-menu .dropdown-item {
+                color: #ffffff !important;
+            }
+
+                .dropdown-menu .dropdown-item:hover {
+                    background-color: #ff7f50;
+                }
+
+        footer {
+            border-top: 2px solid #343a40;
+            padding-top: 10px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight:bold;">GarageKeeper</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home Page</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCars" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Cars
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCars">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Cars" asp-action="Index">All Cars</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Cars" asp-action="Create">Add New Car</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Cars" asp-action="Search">Search Cars</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Customers" asp-action="">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Appointments" asp-action="">Appointments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Orders" asp-action="">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Invoices" asp-action="">Invoices(Bills)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Expenses" asp-action="">Expenses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="" asp-action="">Garage Locations</a>
+                        </li>
+      
+       
+
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Languages" asp-action="Index">Languages(//)</a>
+                        </li>
+                    </ul>
+                </div>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+              <a asp-area="" asp-controller="Home" asp-action="Privacy" style="color:red; text-decoration:none;">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

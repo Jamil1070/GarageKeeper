@@ -1,0 +1,74 @@
+﻿@model NET_FRAMEWORKS_EXAMEN_OPDRACHT.Models.Appointment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AppointmentId" />
+            
+            
+            <div class="form-group">
+                <label asp-for="CarID" class="control-label">Car</label>
+                <select asp-for="CarID" class="form-control" asp-items="ViewBag.Cars"></select>
+                <span asp-validation-for="CarID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentDate" class="control-label">Appointment Date</label>
+                <input asp-for="AppointmentDate" class="form-control" type="datetime-local" value="@ViewData["FormattedAppointmentDate"]" />
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+            </div>
+
+           
+            <div class="form-group">
+                <label asp-for="RequiredService" class="control-label">Required Service</label>
+                <input asp-for="RequiredService" class="form-control" />
+                <span asp-validation-for="RequiredService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Status</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Pending">Pending</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <br/>
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+<div>
+
+    <a asp-action="Index" class="btn btn-custom">Back to List</a>
+</div>
+
+<style>
+    .btn-custom {
+        background-color: green;
+        color: #fff;
+        border-color: darkgreen;
+    }
+
+        .btn-custom:hover {
+            background-color: darkgreen;
+            color: #fff;
+        }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

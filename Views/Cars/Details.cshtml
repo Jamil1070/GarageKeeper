@@ -1,0 +1,97 @@
+﻿@model NET_FRAMEWORKS_EXAMEN_OPDRACHT.Models.Car
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Make)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Make)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LicensePlate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LicensePlate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChassisNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChassisNumber)
+        </dd>
+        
+        
+        <dd class="col-sm-10">
+            <div class="custom-bg-blue p-3 rounded">
+                <h4>Customer</h4>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        Customer Name
+                    </dt>
+                    <dd class="col-sm-10 text-dark">
+                        @Html.DisplayFor(model => model.Customer.Name)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Address
+                    </dt>
+                    <dd class="col-sm-10 text-dark">
+                        @Html.DisplayFor(model => model.Customer.Adress)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Email
+                    </dt>
+                    <dd class="col-sm-10 text-dark">
+                        @Html.DisplayFor(model => model.Customer.Email)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Phone Number
+                    </dt>
+                    <dd class="col-sm-10 text-dark">
+                        @Html.DisplayFor(model => model.Customer.PhoneNumber)
+                    </dd>
+                </dl>
+            </div>
+        </dd>
+    </dl>
+    
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.CarID" class="btn btn-warning">Edit</a>
+    <div>
+        <br />
+
+        <a asp-action="Index" class="btn btn-custom">Back to List</a>
+    </div>
+
+    <style>
+        .btn-custom {
+            background-color: green;
+            color: #fff;
+            border-color: darkgreen;
+        }
+
+            .btn-custom:hover {
+                background-color: darkgreen;
+                color: #fff;
+            }
+
+        .custom-bg-blue {
+            background-color: lightblue;
+        }
+    </style>
+</div>
